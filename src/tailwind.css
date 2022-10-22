@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+    font-family: Poppins;
+    src: url(../public/fonts/ttf/Poppins-Medium.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Lao;
+    src: url(../public/fonts/ttf/NotoSansLao-Regular.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: Poppins, Lao, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, ul, li, a {
+    font-family: Poppins, Lao, sans-serif;
+}
+
+/*base-table*/
+.base--table {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/*base-menu-table*/
+.base-menu-table {
+    width: 100%;
+}
+
+/*ant-design*/
+.ant-page-header {
+    padding: 0 20px 12px 20px;
+    border: none;
+}
+
+.ant-page-header-heading-title {
+    font-weight: lighter;
+    font-size: 16px;
+}
+
+.ant-page-header-heading-sub-title {
+    font-size: 14px;
+}
+
+.ant-page-header-content {
+    padding: 0;
+}
