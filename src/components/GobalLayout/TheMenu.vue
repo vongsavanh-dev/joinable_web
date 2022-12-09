@@ -1,25 +1,27 @@
 <template>
-  <a-menu v-for="(menu,key) in MenuList">
-    <a-menu-item :key="key" @click="handleChangeMenu(menu)">
-      <span><i :class="menu.icon"></i></span>
-      <span class="ml-2 text-base">{{ menu.name }}</span>
+  <a-menu style="background-color: #F3F3F3" v-for="menu in MenuList" v-model:selectedKeys="selectedKeys"
+          @click="handleChangeMenu(menu)">
+    <a-menu-item :key="menu.id" class="hover:text-black">
+      <span class="text-base text-gray-600"><i :class="menu.icon"></i></span>
+      <span style="color: #000c17 !important;" class="ml-2 text-base font-light">{{ menu.name }}</span>
     </a-menu-item>
   </a-menu>
 </template>
 
 <script setup>
-import {reactive} from "vue";
+import {ref, reactive} from "vue";
 import {useRouter} from "vue-router";
 
+const selectedKeys = ref(['0']);
 const router = useRouter();
 /*menu list*/
 const MenuList = reactive([
   {
-    id: "1",
-    name: "ຂໍ້ມູນຜູ້ຊ່ຽວຊານ",
-    route: "expert.index",
-    icon: "fas fa-minus"
-  }
+    id: "0",
+    name: "Company",
+    icon: "far fa-building",
+    route: "company.index"
+  },
 ]);
 
 /*change menu */
@@ -30,8 +32,8 @@ function handleChangeMenu(menu) {
   })
 
 }
+
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
 </style>

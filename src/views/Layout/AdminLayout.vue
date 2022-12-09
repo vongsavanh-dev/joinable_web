@@ -1,25 +1,43 @@
 <template>
-  <a-layout class="h-full">
-    <a-layout-sider class="h-screen bg-white" v-model:collapsed="collapsed" :trigger="null" collapsible>
-      <div class="w-full h-20 flex justify-center  items-center ">
-        <div class="w-10 h-10  rounded-lg flex justify-center items-center">
-          Logo
+  <a-layout class="h-screen overflow-hidden w-full">
+    <a-layout-sider style="background-color: #F3F3F3" width="280" class="h-screen flex flex-col bg-white"
+                    v-model:collapsed="collapsed" :trigger="null" collapsible>
+      <div class="w-full h-[120px] flex items-center px-3">
+        <div class="w-full h-[60px] flex">
+          <div class="w-[55px] h-[55px] rounded-full bg-green-800 flex justify-center items-center text-xl text-white">
+            HK
+          </div>
+          <div class="w-[200px] pl-3 flex justify-center flex-col h-full">
+            <h1 class="m-0 font-bold">Vongsavanh kpt</h1>
+            <p class="m-0 text-xs font-light text-gray-500">vongsavanh@gmail.com</p>
+          </div>
         </div>
-
       </div>
-      <TheMenu/>
+      <div class="w-full h-[600px] overflow-y-auto overflow-x-hidden pl-2 text-justify">
+        <!--      menu sidebar-->
+        <TheMenu/>
+        <!--    end  menu sidebar-->
+      </div>
+      <!--      footer sidebar-->
+      <div class="absolute bottom-0 flex justify-center items-center w-full h-[40px] bg-white">
+        <h2 class="text-sm text-gray-500 font-light uppercase">2022 © hackathon event</h2>
+      </div>
+      <!--     end footer sidebar-->
+
     </a-layout-sider>
-    <a-layout>
-      <a-layout-header class="bg-white p-0 pl-2">
-        <menu-unfold-outlined
-            v-if="collapsed"
-            class="trigger"
-            @click="() => (collapsed = !collapsed)"
-        />
-        <menu-fold-outlined v-else class="trigger" @click="() => (collapsed = !collapsed)"/>
+    <a-layout class="w-full">
+      <a-layout-header style="background-color: #F3F3F3"
+                       class="bg-white w-full flex items-center p-0 pr-6 h-[35px]">
+        <!--        <SelectOutlined-->
+        <!--            v-if="collapsed"-->
+        <!--            class="trigger"-->
+        <!--            @click="() => (collapsed = !collapsed)"-->
+        <!--        />-->
+        <!--        <SelectOutlined v-else class="trigger" @click="() => (collapsed = !collapsed)"/>-->
       </a-layout-header>
-      <a-layout-content class="content__admin bg-gray-100 p-3">
-        <div class="bg-white min-h-full w-full block">
+      <a-layout-content>
+        <div
+            class="w-full bg-white rounded-tl-lg h-full overflow-y-auto p-4 text-justify">
           <BreadcrumbHeader/>
           <router-view/>
         </div>
@@ -28,37 +46,13 @@
   </a-layout>
 </template>
 
-<script>
-import image from "@/assets/image/logo.png"
-import {
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
-  MenuUnfoldOutlined,
-  MenuFoldOutlined
-} from '@ant-design/icons-vue';
-import {defineComponent, ref} from 'vue';
-import TheMenu from "../../components/GobalLayout/TheMenu";
+<script setup>
+import {SelectOutlined} from "@ant-design/icons-vue";
+import {ref, onMounted} from "vue";
 
-export default defineComponent({
-  components: {
-    TheMenu,
-    UserOutlined,
-    VideoCameraOutlined,
-    UploadOutlined,
-    MenuUnfoldOutlined,
-    MenuFoldOutlined,
-  },
+const collapsed = ref(false);
 
-  setup() {
-    return {
-      selectedKeys: ref(['1']),
-      collapsed: ref(false),
-      image: image
-    };
-  },
 
-});
 </script>
 <style>
 </style>

@@ -1,4 +1,3 @@
-
 import path from 'path';
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue';
@@ -46,17 +45,5 @@ export default defineConfig({
             '.json',
             '.vue'
         ],
-    },
-    css: {
-        preprocessorOptions: {
-            scss: {
-                additionalData: `
-                @import "@/scss/main.scss";
-                @import "@/scss/color.scss";
-                @import "@/scss/font.scss";
-                
-            `
-            }
-        }
     },
 })

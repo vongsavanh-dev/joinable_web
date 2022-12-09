@@ -6,11 +6,22 @@ import {createApp} from 'vue';
 createApp(vueRouter);
 const routes = [
     {
-        path: '/',
-        component: () => import(/* webpackChunkName: "Login" */'@/views/Pages/Login.vue'),
+        path: '/register',
+        component: () => import(/* webpackChunkName: "Login" */'@/views/Pages/Register/RegisterForm.vue'),
         children: [
             {
-                component: () => import(/* webpackChunkName: "Order Index" */ '@/views/Pages/Login.vue'),
+                component: () => import(/* webpackChunkName: "Order Index" */ '@/views/Pages/Register/RegisterForm.vue'),
+                path: '',
+                name: 'register.index',
+            },
+        ],
+    },
+    {
+        path: '/login',
+        component: () => import(/* webpackChunkName: "Login" */'@/views/Pages/Register/LoginForm.vue'),
+        children: [
+            {
+                component: () => import(/* webpackChunkName: "Order Index" */ '@/views/Pages/Register/LoginForm.vue'),
                 path: '',
                 name: 'login.index',
             },

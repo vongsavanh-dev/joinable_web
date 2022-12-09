@@ -1,19 +1,18 @@
 <template>
-  <a-tabs class="base--table" v-model:activeKey="activeKey" :tab-click="changeTab(activeKey)">
-    <a-tab-pane key="1" tab="Tab Title">
-      <TabTest/>
-    </a-tab-pane>
-    <a-tab-pane key="2" tab="Tab Title II">
-
-    </a-tab-pane>
-  </a-tabs>
+  <div class="">
+    <a-tabs class="base--table" v-model:activeKey="activeKey" :tab-click="changeTab(activeKey)">
+      <a-tab-pane key="1" tab="Tab Title">
+        <TabTestTable/>
+      </a-tab-pane>
+    </a-tabs>
+  </div>
 </template>
 
 <script setup>
 import {ref} from "vue";
 import {useRoute} from "vue-router"
 import {useRouter} from "vue-router";
-import TabTest from "./TabItems/TabTest";
+import TabTestTable from "./TabItems/TabTestTable";
 
 const route = useRoute();
 const router = useRouter();

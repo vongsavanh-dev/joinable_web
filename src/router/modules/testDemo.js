@@ -5,10 +5,20 @@ const moduleRouter = {
         {
             component: () => import(/* webpackChunkName: "Product Index" */ '@/views/Pages/Test/index.vue'),
             path: '',
-            name: 'product.index',
+            name: 'test.index',
             meta: {
-                title: "ຫົວຂໍ້ຫຼັກ",
-                name: "ຫົວຂໍ້ຍ່ອຍ",
+                title: "Main Title",
+                name: "Sub Title",
+                layout: "admin",
+            }
+        },
+        {
+            component: () => import(/* webpackChunkName: "Product Manage" */ '@/views/Pages/Test/TabItems/Manage'),
+            path: 'create',
+            name: 'test.create',
+            meta: {
+                title: "Main Title",
+                name: "Sub Title",
                 layout: "admin",
             }
         },
